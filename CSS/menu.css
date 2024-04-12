@@ -1,0 +1,271 @@
+/*CSS Styling of the Menupage*/
+
+body {
+    margin: 0;
+    font-family: "Fjalla One", sans-serif;
+    padding:0;
+    background-color:#1B1C1D;
+}
+
+.header{
+    color: whitesmoke;
+    text-align: left;
+    box-shadow: 0px 0px 10px black;
+    text-shadow: 0px 5px 5px black;
+    position: relative;
+}
+.header img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px; 
+    height: auto;
+    padding:20px;
+}
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    padding: 20px;
+    background-color:#C8102E;
+}
+
+.navigation ul {
+    margin: 0;
+    text-align: left;
+    padding: 0;
+    background-color: #960C22;
+}
+
+.navigation ul li {
+    display: inline;
+    margin: 0;
+}
+
+.navigation ul li a {
+    font-size: 20px;
+    transition: color .5s;
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 0;
+}
+
+.navigation ul li a:hover {
+    color: rgba(255, 255, 255, 0.664);
+}
+
+.navigation ul li.active a {
+    color: #f2c641;
+}
+
+h2{
+    font-size: 50px;
+    color: #e81313;
+    text-align:center;
+    text-shadow: 0px 5px 5px black;
+    margin-bottom:10px;
+}
+
+.title p{
+    text-align: center;
+    text-shadow: 0px 5px 5px black;
+    font-size:20px;
+    color:whitesmoke;
+    margin-top:10px;
+}
+
+.title{
+    background-image: url("../Images/wallpaper.jpg");
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size:cover;
+    margin:0;
+    box-shadow: 0px 0px 10px black;
+    padding:50px;
+    
+}
+
+.container{
+    width:90%;
+    margin:50px auto;
+    text-align: center;
+    list-style:none;
+    box-sizing:border-box;
+    text-shadow: 0px 5px 5px black;
+    color:whitesmoke;
+
+}
+/* Food Tabs Styling*/
+.list{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+.list li {
+    margin: 0px 15px;
+    font-weight: 600;
+    font-size: 25px;
+    cursor: pointer;
+    transition: color 0.5s; 
+}
+
+.list li:hover {
+    color: rgba(255, 255, 255, 0.664) !important; 
+}
+/*Food Menu Styling*/
+.content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+}
+.box{
+    width:32%;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:whitesmoke;
+    animation: displayable 1s ease-in-out;
+}
+.box .image{
+    width: 35%;
+}
+.box img{
+    width: 200px;
+    height:200px;
+    box-shadow: 0px 0px 10px red;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+}
+.box img:hover{
+    transform: scale(1.05);
+}
+.box .text{
+    width:60%;
+    text-align: left;
+}
+.text section{
+    padding-top: 10px;
+    color:whitesmoke;
+    font-size: 20px;
+    font-weight: 600;
+    font-style:italic
+}
+.text h3{
+    font-size: 25px;
+    margin-bottom: 2px;
+    color:#C8102E;
+}
+.text hr{
+    border:none; 
+    height: 2px;
+    background-color: gray; 
+    margin: 10px;
+    width:200px; 
+    margin-left:0px;
+}
+.text article{
+    font-size: 15px;
+    color:#595857;
+}
+
+@keyframes displayable{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+/*Social Media Styling*/
+.info{
+    background-color: #C8102E;
+    padding:25px 60px;
+    box-shadow: 0px 0px 10px black;
+}
+.fa-x-twitter {
+    color: black;
+}
+
+.fa-youtube {
+    color: red;
+}
+.fa-instagram{
+    color:white;
+}
+.info {
+    position: relative;
+}
+
+.icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding:75px 150px;
+    font-size: 30px;
+}
+
+.icons a {
+    margin-left: 10px;
+}
+/*Order Button Styling*/
+.button {
+    margin: 10px auto; 
+    padding: 30px 60px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #8B0000; 
+    background-image: linear-gradient(45deg, #8B0000 0%, #B22222  51%, #8B0000  100%); 
+    cursor: pointer;
+    touch-action: manipulation;
+    font-size:20px;
+}
+
+.button:hover {
+    background-position: center;
+    color: whitesmoke;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+.order{
+    background-image: url("../Images/wallpaper.jpg");
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center;
+        background-size:cover;
+        margin:0;
+        box-shadow: 0px 0px 10px black;
+        padding: 150px;
+    }
+
+/*Website Resizing*/
+@media screen and (max-width: 600px) {
+    .content {
+        flex-direction: column; 
+    }
+    .box {
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+}
+
+
+@media screen and (min-width: 1025px) {
+}
