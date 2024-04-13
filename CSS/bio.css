@@ -30,22 +30,22 @@ h1 {
     text-shadow: 0px 5px 5px black;
 }
 .content h2{
-    font-size: 50px;
+    font-size: 40px;
     color:#C8102E;
+    margin-top:65px;
     
 }
 .content {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     text-shadow: 0px 5px 5px black;
     
 }
 .content .bio{
-    font-size: 30px;
-    line-height: 1.5;
+    font-size: 20px;
     text-shadow: 0px 5px 5px black;
     border: 2px solid black;
-    padding:25px;
+    padding:20px;
     margin-top:50px;
     box-shadow: 0px 0px 5px black;
 }
@@ -64,7 +64,7 @@ h1 {
     text-shadow: 0px 5px 5px black;
 }
 #Owner{
-    width:300px;
+    width:175px;
     box-shadow: 0px 0px 10px black;
     border: 2px solid black;
     border-radius: 20px;
