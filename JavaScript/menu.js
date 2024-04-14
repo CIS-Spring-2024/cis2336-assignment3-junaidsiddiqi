@@ -1,4 +1,3 @@
-//JS Coding for Functional Food Tabs//
 document.addEventListener('DOMContentLoaded', function() {
     // Functional Food Tabs
     let list = document.querySelectorAll(".list li");
@@ -21,33 +20,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add To Shopping Cart Coding
-    const plusIcons = document.querySelectorAll('.fa-plus');
+    const addToCartIcons = document.querySelectorAll('.add-to-cart');
     const cartSidebar = document.getElementById('sidebar');
     const cartCloseButton = document.querySelector('.sidebar-close');
-    const cartToggleButton = document.getElementById('cart-icon');
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotal = document.querySelector('.cart-total');
 
     let totalPrice = 0;
 
-    function addItemToCart(itemName, itemPrice) {
+    function addItemToCart(itemName, itemPrice, quantity) {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
-            <span>${itemName}</span>
-            <span class="cart-item-price">$${itemPrice.toFixed(2)}</span>
+            <span>${quantity}x ${itemName}</span>
+            <span class="cart-item-price">$${(itemPrice * quantity).toFixed(2)}</span>
+            <i class="fas fa-times remove-item"></i>
         `;
         cartItemsContainer.appendChild(cartItem);
-        totalPrice += itemPrice;
+        totalPrice += itemPrice * quantity;
         cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+        const removeIcon = cartItem.querySelector('.remove-item');
+        removeIcon.addEventListener('click', () => {
+            removeItemFromCart(itemPrice * quantity);
+            cartItemsContainer.removeChild(cartItem);
+        });
     }
 
-    plusIcons.forEach(icon => {
+    addToCartIcons.forEach(icon => {
         icon.addEventListener('click', () => {
             const parentBox = icon.closest('.box');
             const itemName = parentBox.querySelector('h3').textContent;
             const itemPrice = parseFloat(parentBox.querySelector('section').textContent.slice(1));
-            addItemToCart(itemName, itemPrice);
+            const quantity = parseInt(parentBox.querySelector('.quantity-input').value);
+            
+            if (!isNaN(quantity) && quantity > 0 && quantity <= 10) {
+                addItemToCart(itemName, itemPrice, quantity);
+            } else {
+                alert('Please enter a valid quantity between 1 and 10.');
+            }
         });
     });
 
@@ -61,18 +71,54 @@ document.addEventListener('DOMContentLoaded', function() {
         cartSidebar.classList.remove('open');
     }
 
-    // Event listener for clicking the "Order Now" button
-    document.querySelector('.button').addEventListener('click', function() {
-        openCart(); // Ensure the sidebar opens when the button is clicked
-    });
+    // Function to remove item from cart
+    function removeItemFromCart(itemPrice) {
+        totalPrice -= itemPrice;
+        cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    }
 
-    // Event listener for cart toggle button (shopping cart icon)
-    cartToggleButton.addEventListener('click', () => {
-        cartSidebar.classList.toggle('open');
+    // Event listener for clicking the "Order Now" button
+    document.querySelector('.order .button').addEventListener('click', function() {
+        openCart();
     });
 
     // Event listener for cart close button
     cartCloseButton.addEventListener('click', () => {
         closeCart();
+    });
+});
+document.querySelectorAll('.quantity-control').forEach(control => {
+    control.addEventListener('click', () => {
+        const input = control.parentElement.querySelector('.quantity-input');
+        let value = parseInt(input.value);
+
+        if (control.classList.contains('quantity-up')) {
+            if (value < 10) { // Check if the value is less than 10
+                input.value = ++value;
+            }
+        } else {
+            input.value = value > 1 ? --value : 1;
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Functional Food Tabs code and other functions...
+
+    // Event listener for the checkout button
+    document.querySelector('.checkout-btn').addEventListener('click', function() {
+        // Access the cart items container again here
+        const cartItemsContainer = document.querySelector('.cart-items');
+
+        // Check if the cart is empty
+        if (cartItemsContainer.children.length === 0) {
+            // If the cart is empty, do nothing
+            return;
+        }
+
+        // Display a confirmation message
+        alert('Thank you for your order!');
+
+        // Refresh the page
+        window.location.reload();
     });
 });

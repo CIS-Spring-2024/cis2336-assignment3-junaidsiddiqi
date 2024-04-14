@@ -115,12 +115,15 @@ h2{
 .list li:hover {
     color: rgba(255, 255, 255, 0.664) !important; 
 }
+
 /*Food Menu Styling*/
-.content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.content {
+    display: flex;
+    justify-content: flex-start; /* Align menu to the left */
+    align-items: center;
     flex-wrap: wrap;
+    max-width: 90%;
+    margin: 0 auto;
 }
 .box{
     width:32%;
@@ -200,13 +203,60 @@ h2{
         opacity: 100;
     }
 }
+.quantity-input {
+    margin-top:10px;
+    width: 33px; /* Adjust the width as needed */
+    height: 20px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f28a83;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align:center;
+}
+.quantity-input:focus {
+    outline: none;
+}
+
+/* Increase/decrease button style */
+.quantity-control {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #C8102E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-control:hover {
+    background-color: #8B0000;
+}
+
+.quantity-up, .quantity-down {
+    text-align: center;
+    color: black;
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 30px; /* Adjust the line height to vertically center the text */
+}
+.quantity-control {
+    user-select: none;
+}
+
 /*Cart Sidebar*/
 .sidebar {
     width: 300px;
     height: 100%;
     position: fixed;
     top: 0;
-    right: -300px; /* Start hidden */
+    right: -300px; 
     background-color: #C8102E;
     box-shadow: 0 0 6px black;
     padding: 20px;
@@ -214,15 +264,14 @@ h2{
     border-bottom-left-radius: 20px;
     z-index: 999;
     visibility: hidden;
-    transition: right 0.3s ease-in-out, visibility 0s 0.3s; /* Add visibility transition */
+    transition: right 0.3s ease-in-out, visibility 0s 0.3s; 
 }
 
 .sidebar.open {
     right: 0;
     visibility: visible;
-    transition: right 0.3s ease-in-out, visibility 0s 0s; /* Immediate visibility when opening */
+    transition: right 0.3s ease-in-out, visibility 0s 0s; 
 }
-
 .sidebar-close{
     position:absolute;
     right:20px;
@@ -230,8 +279,10 @@ h2{
     cursor: pointer;
 }
 .fas.fa-times {
-    color: white; 
+    color: #f28a83; 
     transition: color 0.3s ease-in-out; 
+    cursor:pointer;
+    text-shadow: 0 0 5px black;
 }
 
 .fas.fa-times:hover {
@@ -241,11 +292,15 @@ h2{
     text-shadow: 0 0 5px black;
     color:whitesmoke;
 }
+.cart-menu h3{
+    font-size:30px;
+}
 .cart-item {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    padding: 5px 0;
+    margin-bottom: 10px; /* Add margin at the bottom */
+    padding-right: 5px 0;
 }
 .cart-items{
     display: flex;
@@ -256,7 +311,10 @@ h2{
     text-shadow: 0 0 5px black;
     border: 1px solid #C8102E;
     max-height: 300px;
-    overflow-y: auto; 
+    overflow-y: auto;
+    overflow-x:hidden;
+    width: calc(100% - 20px);
+    padding-right: 20px;
 }
 .cart-item-added {
     animation: displayable 0.5s ease-in-out;
@@ -284,6 +342,8 @@ h2{
     color:lightgreen;
     margin-left: 160px; 
     padding-right: 10px;
+    flex: 1; 
+    text-align: right;
 }
 .sidebar-footer{
     position:absolute;
@@ -327,21 +387,6 @@ h2{
     background-color: darkgreen;
     box-shadow:0 0 10px green;
 }
-
-#cart-icon {
-    cursor: pointer;
-    color: #fff; 
-    transition: color 0.3s ease-in-out;
-}
-
-#cart-icon:hover {
-    color: rgba(255, 255, 255, 0.664); /* Gold color on hover */
-}
-
-.fa-solid.fa-plus:hover {
-    color: #f2c641; 
-}
-
 
 /*Social Media Styling*/
 .info{
@@ -412,5 +457,61 @@ h2{
         background-size:cover;
         margin:0;
         box-shadow: 0px 0px 10px black;
-        padding: 150px;
+        padding: 150px; 
+}
+
+/*Wesbite Resizing*/ 
+@media screen and (max-width: 1200px) {
+    
+    body {
+        font-size: 14px;
     }
+
+    .box {
+        width: 90%;
+    }
+
+    .quantity-control {
+        font-size: 14px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .quantity-input {
+        width: 40px;
+        height: 20px;
+        padding: 3px 6px;
+    }
+    .sidebar {
+        width: 100px; 
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    body {
+        font-size: 12px;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .quantity-control {
+        font-size: 12px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
+
+    .quantity-input {
+        width: 30px;
+        height: 16px;
+        padding: 2px 4px;
+    }
+    .sidebar {
+        width: 200px; 
+    }
+}

@@ -5,3 +5,5 @@
 
 Project Setup:
 On the menupage of this website, it has a menu filtering implementation forthe food menu which categorizes parts of the menu to show up for different sections (i.e. Breakfast, Lunch, Dinner). By clicking on the different tabs directly above the menu, it will update based on what's clicked to show the user the related items of the menu for that tab. Not only does it update the page to do that, but you are able to go back to whichever tabs you pressed on already and will still update to carry out its function. With the usage of effects on the webpage, it keeps it looking interactive and implies to the user that it has functionality. 
+
+In addition to the menu filtering system, there is an "Order Now" button with functionality that brings in a tab from the side where the user can submit an order form with their selected food items. As the user adds food items to their cart, the total price amount updates at the same time.
