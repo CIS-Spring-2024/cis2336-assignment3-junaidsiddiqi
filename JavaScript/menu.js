@@ -1,90 +1,78 @@
 //JS Coding for Functional Food Tabs//
+document.addEventListener('DOMContentLoaded', function() {
+    // Functional Food Tabs
+    let list = document.querySelectorAll(".list li");
+    let boxes = document.querySelectorAll(".box");
 
+    list.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            list.forEach((el1) => {
+                el1.style.color = "whitesmoke";
+            });
+            e.target.style.color = "#f2c641";
 
-let list = document.querySelectorAll(".list li");
-let boxes = document.querySelectorAll(".box");
-
-list.forEach((el)=>{
-    el.addEventListener("click", (e)=>{
-
-        list.forEach((el1)=>{
-            el1.style.color = "whitesmoke";
-        })
-        e.target.style.color = "#f2c641";
-
-        boxes.forEach((el2)=> {
-            el2.style.display = "none";
-        })
-        document.querySelectorAll(e.target.dataset.filter).forEach((li)=>{
-            li.style.display = "flex";
-        })
-    })
-})
-
-//Add To Shopping Cart Coding//
-
-// Select all the plus icons
-const plusIcons = document.querySelectorAll('.fa-plus');
-
-// Select the cart sidebar
-const cartSidebar = document.getElementById('sidebar');
-
-// Select the cart close button
-const cartCloseButton = document.querySelector('.sidebar-close');
-
-// Select the cart toggle button
-const cartToggleButton = document.querySelector('.cart-toggle');
-
-// Select the cart items container
-const cartItemsContainer = document.querySelector('.cart-items');
-
-// Select the cart total element
-const cartTotal = document.querySelector('.cart-total');
-
-// Initialize total price
-let totalPrice = 0;
-
-// Function to add item to cart
-function addItemToCart(itemName, itemPrice) {
-    // Create a new div element for the cart item
-    const cartItem = document.createElement('div');
-    cartItem.classList.add('cart-item');
-    
-    // Set the inner HTML of the cart item
-    cartItem.innerHTML = `
-        <span>${itemName}</span>
-        <span class="cart-item-price">$${itemPrice.toFixed(2)}</span>
-    `;
-    
-    // Append the cart item to the cart items container
-    cartItemsContainer.appendChild(cartItem);
-    
-    // Update total price
-    totalPrice += itemPrice;
-    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
-}
-
-// Event listener for plus icons
-plusIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-        // Get the parent box of the clicked plus icon
-        const parentBox = icon.closest('.box');
-        
-        // Extract item name and price from the parent box
-        const itemName = parentBox.querySelector('h3').textContent;
-        const itemPrice = parseFloat(parentBox.querySelector('section').textContent.slice(1));
-        
-        // Add the item to the cart
-        addItemToCart(itemName, itemPrice);
+            boxes.forEach((el2) => {
+                el2.style.display = "none";
+            });
+            document.querySelectorAll(e.target.dataset.filter).forEach((li) => {
+                li.style.display = "flex";
+            });
+        });
     });
-});
 
-// Event listener for cart close button
-cartCloseButton.addEventListener('click', () => {
-    cartSidebar.classList.remove('open');
-});
+    // Add To Shopping Cart Coding
+    const plusIcons = document.querySelectorAll('.fa-plus');
+    const cartSidebar = document.getElementById('sidebar');
+    const cartCloseButton = document.querySelector('.sidebar-close');
+    const cartToggleButton = document.getElementById('cart-icon');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotal = document.querySelector('.cart-total');
 
-// Event listener for cart toggle button
-cartToggleButton.addEventListener('click', () => {
-    cartSidebar.classList.toggle('open');
+    let totalPrice = 0;
+
+    function addItemToCart(itemName, itemPrice) {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <span>${itemName}</span>
+            <span class="cart-item-price">$${itemPrice.toFixed(2)}</span>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+        totalPrice += itemPrice;
+        cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    }
+
+    plusIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const parentBox = icon.closest('.box');
+            const itemName = parentBox.querySelector('h3').textContent;
+            const itemPrice = parseFloat(parentBox.querySelector('section').textContent.slice(1));
+            addItemToCart(itemName, itemPrice);
+        });
+    });
+
+    // Function to open the cart sidebar
+    function openCart() {
+        cartSidebar.classList.add('open');
+    }
+
+    // Function to close the cart sidebar
+    function closeCart() {
+        cartSidebar.classList.remove('open');
+    }
+
+    // Event listener for clicking the "Order Now" button
+    document.querySelector('.button').addEventListener('click', function() {
+        openCart(); // Ensure the sidebar opens when the button is clicked
+    });
+
+    // Event listener for cart toggle button (shopping cart icon)
+    cartToggleButton.addEventListener('click', () => {
+        cartSidebar.classList.toggle('open');
+    });
+
+    // Event listener for cart close button
+    cartCloseButton.addEventListener('click', () => {
+        closeCart();
+    });
 });

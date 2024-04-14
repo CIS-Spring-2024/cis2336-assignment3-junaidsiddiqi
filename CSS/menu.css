@@ -131,6 +131,7 @@ h2{
     color:whitesmoke;
     animation: displayable 1s ease-in-out;
 }
+
 .box .image{
     width: 35%;
     margin-top:20px;
@@ -184,10 +185,12 @@ h2{
     border-radius:50%;
     padding:5px;
     cursor:pointer;
-    transition:1s ease-in-out;
+    transition:.6s ease-in-out;
 }
 .fa-plus:hover{
     box-shadow:rgb(0 0 0 / 30%) 0px 4px 4px, rgb(231,236,236) 0px 0px 0px 3px;
+    color: #f2c641; 
+    
 }
 @keyframes displayable{
     0%{
@@ -198,28 +201,41 @@ h2{
     }
 }
 /*Cart Sidebar*/
-.sidebar{
+.sidebar {
     width: 300px;
     height: 100%;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -300px; /* Start hidden */
     background-color: #C8102E;
     box-shadow: 0 0 6px black;
-    transition: right 0.3s ease-in-out;
     padding: 20px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    z-index: 999; 
+    z-index: 999;
+    visibility: hidden;
+    transition: right 0.3s ease-in-out, visibility 0s 0.3s; /* Add visibility transition */
 }
-.sidebar.open{
-    right:0;
+
+.sidebar.open {
+    right: 0;
+    visibility: visible;
+    transition: right 0.3s ease-in-out, visibility 0s 0s; /* Immediate visibility when opening */
 }
+
 .sidebar-close{
     position:absolute;
     right:20px;
     top:10px;
     cursor: pointer;
+}
+.fas.fa-times {
+    color: white; 
+    transition: color 0.3s ease-in-out; 
+}
+
+.fas.fa-times:hover {
+    color: lightgray; 
 }
 .cart-menu{
     text-shadow: 0 0 5px black;
@@ -312,6 +328,20 @@ h2{
     box-shadow:0 0 10px green;
 }
 
+#cart-icon {
+    cursor: pointer;
+    color: #fff; 
+    transition: color 0.3s ease-in-out;
+}
+
+#cart-icon:hover {
+    color: rgba(255, 255, 255, 0.664); /* Gold color on hover */
+}
+
+.fa-solid.fa-plus:hover {
+    color: #f2c641; 
+}
+
 
 /*Social Media Styling*/
 .info{
@@ -345,6 +375,42 @@ h2{
     margin-right:5px;
     text-decoration:none;
 }
-/*Order Button Styling*/
 
-/*Website Resizing*/
+/*Ordering Button*/
+.button {
+    margin: 10px auto; 
+    padding: 30px 60px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #8B0000; 
+    background-image: linear-gradient(45deg, #8B0000 0%, #B22222  51%, #8B0000  100%); 
+    cursor: pointer;
+    touch-action: manipulation;
+    font-size:20px;
+}
+
+.button:hover {
+    background-position: center;
+    color: whitesmoke;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+.order{
+    background-image: url("../Images/wallpaper.jpg");
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center;
+        background-size:cover;
+        margin:0;
+        box-shadow: 0px 0px 10px black;
+        padding: 150px;
+    }

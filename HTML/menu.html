@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Menu</title>
-    <link rel="stylesheet" href="../CSS/menu.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ee9036e1c6.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <head>
+        <title>Menu</title>
+        <link rel="stylesheet" href="../CSS/menu.css">
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/ee9036e1c6.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
 
 <!--Title of the webpage and navigation tabs-->
 <div class="header">
     <h1>CougBite Cafe</h1>
-        <img src="../Images/logo.png">
+    <img src="../Images/logo.png">
     <div class="navigation">
         <ul>
             <li><a href="../HTML/home.html">Home</a></li>
@@ -19,6 +19,7 @@
             <li><a href="../HTML/location.html">Location & Hours</a></li>
             <li><a href="../HTML/about.html">About Us</a></li>
             <li><a href="../HTML/contact.html">Contact Us</a></li>
+            <li id="cart-icon"><i class="fas fa-shopping-cart"></i></li>
         </ul>
     </div>
 </div>
@@ -284,41 +285,43 @@
     </div>
 </div> 
 <!-- Cart Sidebar Section-->
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-close">
-                <i class="fa-solid fa-close"></i>
-            </div>
-                <div class="cart-menu">
-                        <h3>My Cart</h3>
-                    <div class="cart-items"></div>
-                </div>
-
-        <div class="sidebar-footer">
-            <div class="total-amount">
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-close">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="cart-menu">
+        <h3>My Cart</h3>
+        <div class="cart-items"></div>
+    </div>
+    <div class="sidebar-footer">
+        <div class="total-amount">
             <h5>Total</h5>
             <div class="cart-total">$0.00</div>
         </div>
         <button class="checkout-btn">Checkout</button>
-        </div>
-
     </div>
+</div>
+
+<!--Ordering Button-->
+<div class="order">
+    <button class="button">Order Now</button>
+</div>
 
 <!--Social Media Links-->
 <div class="info">
     <img src="../Images/uofh.png">
     <div class="icons">
         <a href="https://twitter.com/UHatSugarLand/">
-            <i class="fa-brands fa-twitter"></i>
+            <i class="fab fa-twitter"></i>
         </a>
         <a href="https://www.youtube.com/@UniversityOfHouston">
-            <i class="fa-brands fa-youtube"></i>
+            <i class="fab fa-youtube"></i>
         </a>
         <a href="https://www.instagram.com/universityofhouston/">
             <i class="fab fa-instagram"></i>
         </a>
     </div>
 </div>
-
 
 <script src="../JavaScript/menu.js"></script>
 </body>
