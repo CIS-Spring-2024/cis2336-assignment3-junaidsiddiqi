@@ -197,6 +197,122 @@ h2{
         opacity: 100;
     }
 }
+/*Cart Sidebar*/
+.sidebar{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #C8102E;
+    box-shadow: 0 0 6px black;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 999; 
+}
+.sidebar.open{
+    right:0;
+}
+.sidebar-close{
+    position:absolute;
+    right:20px;
+    top:10px;
+    cursor: pointer;
+}
+.cart-menu{
+    text-shadow: 0 0 5px black;
+    color:whitesmoke;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 5px 0;
+}
+.cart-items{
+    display: flex;
+    flex-direction: column; 
+    padding: 10px 5px;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-shadow: 0 0 5px black;
+    border: 1px solid #C8102E;
+    max-height: 300px;
+    overflow-y: auto; 
+}
+.cart-item-added {
+    animation: displayable 0.5s ease-in-out;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 10px;/
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: whitesmoke; 
+    border-radius: 5px; 
+}
+
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+    background: lightgrey; 
+}
+.cart-item-price{
+    color:lightgreen;
+    margin-left: 160px; 
+    padding-right: 10px;
+}
+.sidebar-footer{
+    position:absolute;
+    bottom:50px;
+    width:90%;
+}
+.total-amount h5, .cart-total {
+    margin: 0; 
+    padding: 0;
+    font-size:30px;
+    color:whitesmoke;
+    text-shadow: 0 0 5px black;
+}
+.total-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px; 
+    padding: 15px 20px; 
+    border: 2px solid #960C22;
+    background-color: #C8102E; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    color: white; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+.checkout-btn {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: green; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    padding: 15px 20px; 
+    font-size: 18px; 
+    transition: background-color 0.3s; 
+    box-shadow:0 0 10px green;
+}
+
+.checkout-btn:hover {
+    background-color: darkgreen;
+    box-shadow:0 0 10px green;
+}
+
+
 /*Social Media Styling*/
 .info{
     background-color: #C8102E;
@@ -230,42 +346,5 @@ h2{
     text-decoration:none;
 }
 /*Order Button Styling*/
-.button {
-    margin: 10px auto; 
-    padding: 30px 60px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    border: 0px;
-    font-weight: 700;
-    box-shadow: 0px 0px 14px -7px #8B0000; 
-    background-image: linear-gradient(45deg, #8B0000 0%, #B22222  51%, #8B0000  100%); 
-    cursor: pointer;
-    touch-action: manipulation;
-    font-size:20px;
-}
-
-.button:hover {
-    background-position: center;
-    color: whitesmoke;
-}
-
-.button:active {
-    transform: scale(0.95);
-}
-.order{
-    background-image: url("../Images/wallpaper.jpg");
-        background-repeat:no-repeat;
-        background-attachment:fixed;
-        background-position:center;
-        background-size:cover;
-        margin:0;
-        box-shadow: 0px 0px 10px black;
-        padding: 150px;
-    }
 
 /*Website Resizing*/
