@@ -2,3 +2,97 @@ Description:
 
 Now you have a menu page for your cafeteria. For this assignment, please add an interactive order form for food items, which includes validation checks for each item's quantity.
 You can add the order form on your menu page or create a separate order page. Keep it real and make it great!
+
+
+.gallery{
+    background-image: url("../Images/wallpaper.jpg");
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size:cover;
+    margin:0;
+    box-shadow: 0px 0px 10px black;
+    padding: 150px;
+}
+.gallery h2{
+    font-size: 70px;
+    color: #e81313;
+    text-align:center;
+    text-shadow: 0px 5px 5px black;
+    
+}
+
+.slider{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+  
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    animation: slide 40s linear infinite;
+    box-shadow: 0px 0px 10px black;
+}
+  
+  @keyframes slide{
+    0%, 7%, 100%{
+        opacity: 0; 
+    }
+    3.5%, 6%{
+        opacity: 1;
+    } 
+  }
+  
+.slide:nth-child(1){
+    animation-delay: 0s;
+}
+.slide:nth-child(2){
+    animation-delay: 3.64s;
+} 
+.slide:nth-child(3){
+     animation-delay: 7.27s;
+}
+.slide:nth-child(4){
+    animation-delay: 10.91s;
+}
+.slide:nth-child(5){
+    animation-delay: 14.55s;
+}
+.slide:nth-child(6){
+    animation-delay: 18.18s;
+    }
+.slide:nth-child(7){
+    animation-delay: 21.82s;
+}
+.slide:nth-child(8){
+    animation-delay: 25.45s;
+}
+.slide:nth-child(9){
+    animation-delay: 29.09s;
+}
+.slide:nth-child(10){
+    animation-delay: 32.73s;
+}
+.slide:nth-child(11){
+    animation-delay: 36.36s;
+}
+
+
+ <div class="slide" style="background-image: url('../Images/steak.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/burger.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/pancake.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/salad.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/pasta.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/pizza.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/waffle.avif');"></div>
+    <div class="slide" style="background-image: url('../Images/oatmeal.jpg');"></div>
+    <div class="slide" style="background-image: url('../Images/lasagna.webp');"></div>
+    <div class="slide" style="background-image: url('../Images/sandwich.jpg');"></div>
+  </div>
