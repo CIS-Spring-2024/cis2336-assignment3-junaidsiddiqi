@@ -297,22 +297,3 @@ body {
 }
 
 /*Website Resizing*/
-@media screen and (max-width: 600px) {
-    .content {
-        flex-direction: column; 
-    }
-    .box {
-        width: 100%; 
-        margin-bottom: 20px; 
-    }
-}
-
-
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-
-}
-
-
-@media screen and (min-width: 1025px) {
-}
-
