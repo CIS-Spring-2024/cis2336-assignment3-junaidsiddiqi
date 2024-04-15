@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener for clicking the cart icon
     cartIcon.addEventListener('click', function() {
-        // Check if the sidebar is already open or closed, then toggle it accordingly
+        
         if (cartSidebar.classList.contains('open')) {
-            closeCart(); // Close the sidebar if it's already open
+            closeCart(); 
         } else {
-            openCart(); // Open the sidebar if it's closed
+            openCart(); 
         }
     });
 
@@ -100,12 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener for the checkout button in the cart sidebar
     document.querySelector('.checkout-btn').addEventListener('click', function() {
-        // Access the cart items container again here
+        
         const cartItemsContainer = document.querySelector('.cart-items');
 
         // Check if the cart is empty
         if (cartItemsContainer.children.length === 0) {
-            // If the cart is empty, do nothing
             return;
         }
 
@@ -123,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let value = parseInt(input.value);
 
             if (control.classList.contains('quantity-up')) {
-                if (value < 10) { // Check if the value is less than 10
+                if (value < 10) { 
                     input.value = ++value;
                 }
             } else {
