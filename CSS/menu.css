@@ -388,6 +388,33 @@ h2{
     box-shadow:0 0 10px green;
 }
 
+#cart-icon {
+    cursor: pointer;
+    color: #fff; 
+    transition: color 0.3s ease-in-out;
+    animation: pop-in 1s ease forwards;
+    opacity: 0;
+}
+
+#cart-icon:hover {
+    color: rgba(255, 255, 255, 0.664); /* Gold color on hover */
+}
+
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fa-solid.fa-plus:hover {
+    color: #f2c641; 
+}
+
 /*Social Media Styling*/
 .info{
     background-color: #C8102E;

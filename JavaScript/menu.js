@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCloseButton = document.querySelector('.sidebar-close');
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotal = document.querySelector('.cart-total');
+    const cartIcon = document.getElementById('cart-icon');
 
     let totalPrice = 0;
 
@@ -77,34 +78,27 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
     }
 
-    // Event listener for clicking the "Order Now" button
-    document.querySelector('.order .button').addEventListener('click', function() {
-        openCart();
+    // Event listener for clicking the cart icon
+    cartIcon.addEventListener('click', function() {
+        // Check if the sidebar is already open or closed, then toggle it accordingly
+        if (cartSidebar.classList.contains('open')) {
+            closeCart(); // Close the sidebar if it's already open
+        } else {
+            openCart(); // Open the sidebar if it's closed
+        }
     });
 
     // Event listener for cart close button
     cartCloseButton.addEventListener('click', () => {
         closeCart();
     });
-});
-document.querySelectorAll('.quantity-control').forEach(control => {
-    control.addEventListener('click', () => {
-        const input = control.parentElement.querySelector('.quantity-input');
-        let value = parseInt(input.value);
-
-        if (control.classList.contains('quantity-up')) {
-            if (value < 10) { // Check if the value is less than 10
-                input.value = ++value;
-            }
-        } else {
-            input.value = value > 1 ? --value : 1;
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Functional Food Tabs code and other functions...
 
     // Event listener for the checkout button
+    document.querySelector('.order .button').addEventListener('click', function() {
+        openCart(); // Open the cart sidebar when the order button is clicked
+    });
+
+    // Event listener for the checkout button in the cart sidebar
     document.querySelector('.checkout-btn').addEventListener('click', function() {
         // Access the cart items container again here
         const cartItemsContainer = document.querySelector('.cart-items');
@@ -120,5 +114,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Refresh the page
         window.location.reload();
+    });
+
+    // Quantity control event listeners
+    document.querySelectorAll('.quantity-control').forEach(control => {
+        control.addEventListener('click', () => {
+            const input = control.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value);
+
+            if (control.classList.contains('quantity-up')) {
+                if (value < 10) { // Check if the value is less than 10
+                    input.value = ++value;
+                }
+            } else {
+                input.value = value > 1 ? --value : 1;
+            }
+        });
     });
 });
